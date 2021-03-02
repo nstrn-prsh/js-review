@@ -10,6 +10,7 @@
      </head>
 
      <body>
+          <div id="root"></div>
           <!-- <script src="./index.js"  type="module"></script> -->
           <script
                crossorigin
@@ -21,10 +22,39 @@
           ></script>
 
           <script>
-               const hW = () => {
-                    return React.createElement("div", null, "hello world!");
-               };
-               ReactDOM.render(hW(), document.body);
+               /*
+                              const hW = () => {
+                                   return React.createElement("div", null, "hello world!");
+                              };
+                              ReactDOM.render(hW(), document.body);
+                              */
+
+               function generator(nameTx, ageTx) {
+                    return React.createElement(
+                         "div",
+                         { class: "cart" },
+                         React.createElement("span", null, `name: ${nameTx}`),
+                         React.createElement("span", null, `age: ${ageTx}`)
+                    );
+               }
+
+               const userData = [
+                    { name: "nas", age: "20" },
+                    { name: "taran", age: "21" },
+                    { name: "nastaran", age: "22" },
+               ];
+
+               const carts = userData.map((data) =>
+                    generator(data.name, data.age)
+               );
+
+               const container = React.createElement(
+                    "div",
+                    { class: "container" },
+                    carts
+               );
+
+               ReactDOM.render(container,document.getElementById("root"));
           </script>
      </body>
 </html>
