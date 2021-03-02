@@ -20,15 +20,28 @@
                crossorigin
                src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
           ></script>
+          <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-          <script>
+          <script type="text/babel">
+               const userInfo = {
+                    name: "nas",
+                    lastName: "prsh",
+               };
+
+               const greeting= (user)=>{
+                    if(user) return <p>hello {userInfo.name}!</p>
+                    else return <p>hello world!</p>
+               }
+
+               const element = greeting(userInfo)
+               ReactDOM.render(element, document.getElementById("root"));
                /*
-                              const hW = () => {
-                                   return React.createElement("div", null, "hello world!");
-                              };
-                              ReactDOM.render(hW(), document.body);
-                              */
-
+               const hW = () => {
+                    return React.createElement("div", null, "hello world!");
+               };
+               ReactDOM.render(hW(), document.body);
+               */
+               /*
                function generator(nameTx, ageTx) {
                     return React.createElement(
                          "div",
@@ -55,6 +68,7 @@
                );
 
                ReactDOM.render(container,document.getElementById("root"));
+               */
           </script>
      </body>
 </html>
