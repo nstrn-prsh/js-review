@@ -24,30 +24,38 @@
                     <span>age: 20</span>
                </div>
           </div> -->
-          
+
           <script>
-            const container = document.createElement('div')
-            container.classList.add('container')
+               const container = document.createElement("div");
+               container.classList.add("container");
 
-            function generator(nameTx, ageTx) {
-                const cart = document.createElement('div')
-                cart.classList.add('cart')
-    
-                const name = document.createElement('span')
-                name.innerText = `name: ${nameTx}`
-                
-                const age = document.createElement('span')
-                age.innerText =`age: ${ageTx}`
-    
-                cart.appendChild(name)
-                cart.appendChild(age)
+               function generator(nameTx, ageTx) {
+                    const cart = document.createElement("div");
+                    cart.classList.add("cart");
 
-                return cart
-            }
+                    const name = document.createElement("span");
+                    name.innerText = `name: ${nameTx}`;
 
-            container.appendChild(generator('nastaran', '22'))
+                    const age = document.createElement("span");
+                    age.innerText = `age: ${ageTx}`;
 
-            document.body.appendChild(container)
+                    cart.appendChild(name);
+                    cart.appendChild(age);
+
+                    return cart;
+               }
+
+               const userData = [
+                    { name: "nas", age: "20" },
+                    { name: "taran", age: "21" },
+                    { name: "nastaran", age: "22" },
+               ];
+               
+               userData.forEach((data) =>
+                    container.appendChild(generator(data.name, data.age))
+               );
+
+               document.body.appendChild(container);
           </script>
      </body>
 </html>
