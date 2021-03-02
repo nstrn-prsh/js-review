@@ -28,20 +28,24 @@
           <script>
             const container = document.createElement('div')
             container.classList.add('container')
-            
-            const cart = document.createElement('div')
-            cart.classList.add('cart')
 
-            const name = document.createElement('span')
-            name.innerText = 'name: nastaran'
-            
-            const age = document.createElement('span')
-            age.innerText = 'age: 20'
+            function generator(nameTx, ageTx) {
+                const cart = document.createElement('div')
+                cart.classList.add('cart')
+    
+                const name = document.createElement('span')
+                name.innerText = `name: ${nameTx}`
+                
+                const age = document.createElement('span')
+                age.innerText =`age: ${ageTx}`
+    
+                cart.appendChild(name)
+                cart.appendChild(age)
 
-            cart.appendChild(name)
-            cart.appendChild(age)
+                return cart
+            }
 
-            container.appendChild(cart)
+            container.appendChild(generator('nastaran', '22'))
 
             document.body.appendChild(container)
           </script>
