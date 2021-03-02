@@ -1,4 +1,4 @@
-function generateElement(tagName, attribute) {
+function generateElement(tagName, attribute, ...children) {
      const element = document.createElement(tagName);
 
      if (attribute) {
@@ -7,23 +7,26 @@ function generateElement(tagName, attribute) {
           );
      }
 
+     if (children) {
+          children.forEach((child) => {
+               if ("string" === typeof child)
+                    element.appendChild(document.createTextNode(child));
+               else element.appendChild(child);
+          });
+     }
+
      return element;
 }
 
 const container = generateElement("div", { class: "container" });
 
 function generator(nameTx, ageTx) {
-     const cart = document.createElement("div");
-     cart.classList.add("cart");
-
-     const name = document.createElement("span");
-     name.innerText = `name: ${nameTx}`;
-
-     const age = document.createElement("span");
-     age.innerText = `age: ${ageTx}`;
-
-     cart.appendChild(name);
-     cart.appendChild(age);
+     const cart = generateElement(
+          "div",
+          { class: "cart" },
+          generateElement("span", null, `name: ${nameTx}`),
+          generateElement("span", null, `age: ${ageTx}`)
+     );
 
      return cart;
 }
