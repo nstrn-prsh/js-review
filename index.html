@@ -28,13 +28,15 @@
                     lastName: "prsh",
                };
 
-               const greeting= (user)=>{
-                    if(user) return <p>hello {userInfo.name}!</p>
-                    else return <p>hello world!</p>
-               }
+               const Greeting = (user) => {
+                    if (user) return <p>hello {userInfo.name}!</p>;
+                    else return <p>hello world!</p>;
+               };
 
-               const element = greeting(userInfo)
-               ReactDOM.render(element, document.getElementById("root"));
+               ReactDOM.render(
+                    <Greeting user={userInfo} />,
+                    document.getElementById("root")
+               );
                /*
                const hW = () => {
                     return React.createElement("div", null, "hello world!");
