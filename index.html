@@ -24,6 +24,32 @@
           <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
           <script type="text/babel">
+               const Greeting = (props) => {
+                    return <div>greeting {props.name}</div>;
+               };
+
+               function Hello(props) {
+                    return (
+                         <div>
+                              <p>
+                                   hello {props.name} {props.last}
+                              </p>
+                              <Greeting name={props.name} />
+                              {props.children}
+                         </div>
+                    );
+               }
+
+               const element = (
+                    <Hello name='nas' last='prshf'>
+                         {" "}
+                         salam{" "}
+                    </Hello>
+               );
+
+               ReactDOM.render(element, document.getElementById("root"));
+
+               /*
                class HelloWorld extends React.Component {
                     render() {
                          return <p>i am the world!</p>;
@@ -31,7 +57,7 @@
                }
 
                ReactDOM.render(<HelloWorld />, document.getElementById("root"));
-
+               */
                /*
                const userInfo = {
                     name: "nas",
