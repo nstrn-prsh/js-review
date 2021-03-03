@@ -24,17 +24,13 @@
           <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
           <script type="text/babel">
-               class HelloWorld {
-                    hello() {
-                         return <p>i am world!</p>;
+               class HelloWorld extends React.Component {
+                    render() {
+                         return <p>i am the world!</p>;
                     }
                }
 
-               const newHello = new HelloWorld();
-               ReactDOM.render(
-                    newHello.hello(),
-                    document.getElementById("root")
-               );
+               ReactDOM.render(<HelloWorld />, document.getElementById("root"));
 
                /*
                const userInfo = {
