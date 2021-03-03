@@ -12,6 +12,7 @@
      <body>
           <div id="root"></div>
           <!-- <script src="./index.js"  type="module"></script> -->
+
           <script
                crossorigin
                src="https://unpkg.com/react@17/umd/react.development.js"
@@ -23,6 +24,19 @@
           <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
           <script type="text/babel">
+               class HelloWorld {
+                    hello() {
+                         return <p>i am world!</p>;
+                    }
+               }
+
+               const newHello = new HelloWorld();
+               ReactDOM.render(
+                    newHello.hello(),
+                    document.getElementById("root")
+               );
+
+               /*
                const userInfo = {
                     name: "nas",
                     lastName: "prsh",
@@ -37,6 +51,7 @@
                     <Greeting user={userInfo} />,
                     document.getElementById("root")
                );
+               */
                /*
                const hW = () => {
                     return React.createElement("div", null, "hello world!");
