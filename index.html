@@ -24,6 +24,67 @@
           <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
           <script type="text/babel">
+               const getAdder = () => {
+                    let value = 0;
+                    return function increment() {
+                         value = value + 1;
+                         console.log(value);
+
+                         const msg = `current value is ${value}`;
+
+                         const logger = () => {
+                              console.log(msg);
+                         };
+
+                         const getValue = () => {
+                              return value;
+                         };
+
+                         return { logger, getValue };
+                    };
+               };
+
+               const add = getAdder();
+               //value = 0
+               //func increment
+
+               const { logger, getValue } = add();
+               // value = 1
+               // msg = current value is 1
+               //func logger
+               //func getValue
+
+               add();
+               // value = 2
+               // msg = current value is 2
+               //func logger
+               //func getValue
+               add();
+               add();
+
+               logger();
+               // msg = current value is 1
+               console.log(getValue());
+               // value=4
+
+               /*
+               const getAdder = () => {
+                    let value = 0;
+                    return function increment() {
+                         value = value + 1;
+                         console.log(value);
+                         return value;
+                    };
+               };
+
+               const add = getAdder();
+
+               add(); // be increment eshare mikone
+               add();
+               add();
+               add();
+*/
+               /*
                const getAdder = (i) => {
                     return function (num) {
                          return num + i;
@@ -32,6 +93,7 @@
 
                const add = getAdder(2);
                console.log(add(5));
+               */
                /*
                const Greeting = (props) => {
                     return <div>greeting {props.name}</div>;
